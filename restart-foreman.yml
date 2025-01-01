@@ -5,4 +5,9 @@
   gather_facts: false
   tasks:
   - name: Restart Foreman
-    shell: foreman-installer
+    shell: foreman-maintain health check --plaintext -y
+    register: foreman_maintain_output
+  
+  - name: Show result of maintain task
+    debug:
+      var: foreman_maintain_output
