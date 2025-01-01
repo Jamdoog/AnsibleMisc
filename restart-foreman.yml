@@ -2,6 +2,7 @@
 - name: Restart Foreman
   hosts: all
   become: true
+  gather_facts: false
   tasks:
   - name: Restart Foreman
     shell: foreman-installer
